@@ -4,20 +4,6 @@ import { Subscription } from 'rxjs';
 import { ReservationService } from '../services/reservation.service';
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @Component({
   selector: 'app-reservation',
   templateUrl: './reservation.component.html',
@@ -110,22 +96,6 @@ this.reservationSubscription = this.reservationService.ReservationSubject.subscr
     });
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   onSaveResa() {
     this.isSubmitted = true;
    
@@ -135,14 +105,6 @@ this.reservationSubscription = this.reservationService.ReservationSubject.subscr
 const debut_row = ((new_row - 1 ) * 9) + 1 ;
 const fin_row = ((new_row - 1 ) * 9) + 9 ;
 
-  console.log("this.new_row");
-  console.log(new_row);
-  console.log("this.new_order");
-  console.log(new_order);
-  console.log("this.debut_row");
-  console.log(debut_row);
-  console.log("this.fin_row");
-  console.log(fin_row);
   this.OnResa(debut_row,fin_row,new_order);
     }
 
@@ -154,11 +116,7 @@ OnResa (debut_row,fin_row,new_order) {
       //this.reservations = reservations;
       this.reservations = reservations.filter(e => e.status === 'libre' &&  e.id > debut_row - 1 &&  e.id <= fin_row  );
 this.place_libre = this.reservations.length;
-console.log("this.place_libre");
-console.log(this.place_libre);
 
-console.log("test ecart");
-console.log(new_order -  this.place_libre);
 
 if (new_order > this.place_libre) {
    this.bookerror = 'true' ;
@@ -202,10 +160,6 @@ this.onSaveResa();
 
 OnRAZ1 () {
 
- 
- 
-  
-  
     this.reservationSubscription = this.reservationService.ReservationSubject.subscribe(
       (reservations: any[])  => {
         this.reservations = reservations;
