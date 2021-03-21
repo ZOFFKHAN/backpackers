@@ -1,0 +1,390 @@
+<head>
+<meta charset="utf-8">
+<link rel ="stylesheet" href="image-list.component.css">
+</head>
+
+<!--
+
+<div class="box-opener" (click)="isShowing = !isShowing">
+  Afficher/Masquer : les catégories
+</div>
+-->
+
+<select (click)="OnViewCategory($event.target.value)">
+ 
+  <option *ngFor="let category of categoryList ;">
+    
+    
+      {{category}}
+       
+  </option>
+</select>
+
+<!--
+<select (change)="OnViewCategory($event.target.value)">
+  <option *ngFor="let i of devices">{{i}}</option>
+</select>
+
+onChange(deviceValue) {
+  console.log(deviceValue);
+-->
+
+
+
+
+
+
+
+
+
+<div @slideDownUp *ngIf="isShowing" class="box">
+
+
+  
+
+<table *ngIf ="categoryList" >
+    <tr *ngFor ="let i of rowIndexArray_Category ; ">
+<td >
+          
+           <div class="hover09" *ngIf="i != 0">
+              <figure>
+               <figcaption class="transparence"> {{categoryList[3*i-1]}}   </figcaption> 
+               
+                
+               
+               
+                <div class="container">
+                    <div class="row">
+                      
+                      <div class="col-md-6"> <button class="btn-outline-secondary" (click)="OnViewCategory(categoryList[3*i-1])">
+                        view:{{categoryList[3*i-1]}}
+                         </button></div>
+                      
+                    </div>
+                  </div>
+
+
+            </figure> 
+            </div>
+        </td>
+           
+        <td *ngIf="categoryList[3*i]"> 
+            <div class="hover09">
+                <figure>
+              <figcaption class="transparence"> {{categoryList[3*i]}}   </figcaption>
+                
+                      
+                         <div class="container">
+                            <div class="row">
+                          
+                              <div class="col-md-6"><button class="btn-outline-secondary" (click)="OnViewCategory(categoryList[3*i])">
+                                view:{{categoryList[3*i]}}
+                                 </button></div>
+                                 
+                            </div>
+                          </div>
+                
+                        </figure>
+            </div>
+        </td>
+        
+        <td *ngIf="categoryList[3*i+1]"> 
+            <div class="hover09" >
+                <figure>
+             <figcaption class="transparence"> {{categoryList[3*i+1]}}  </figcaption>
+               
+                <div class="container">
+                    <div class="row">
+                      
+
+                      <div class="col-md-12" > <button class="btn-outline-secondary" (click)="OnViewCategory(categoryList[3*i+1])">view:{{categoryList[3*i+1]}}</button>
+                      </div>
+                      
+                    </div>
+                  </div>
+               
+                 
+               
+               
+               </figure>
+            
+            
+            </div>
+    
+    
+    
+        </td>
+       
+    </tr>
+   
+    </table>
+</div>
+
+
+<!---->
+
+
+
+
+<!--
+<div class="card text-center m-3"> 
+  <h3 class="card-header">Angular 8 Pagination Example</h3>-->
+<!--  
+  <div class="card-body">
+  
+      <div *ngFor="let item of pageOfItems">{{item.name}}</div>
+
+
+   
+  </div>
+-->
+
+
+
+
+
+<table *ngIf ="pageOfItems" >
+ 
+
+  <tr *ngFor ="let i of rowIndexArray_item ; ">
+        <td *ngIf="pageOfItems[3*i]">
+         
+      
+         <div class="hover09" >
+            <figure>
+                 <img [src] ="pageOfItems[3*i].imageUrl"  (click)="OnViewPhoto(pageOfItems[3*i].key)" class="img-thumbnail" >
+              <figcaption class="transparence"> {{pageOfItems[3*i].caption}}   </figcaption> 
+             
+              
+             
+             
+              <div class="container">
+                  <div class="row">
+                    
+                    <div class="col-md-6"> <button class="btn-outline-danger" [disabled]="pageOfItems[3*i].author != my_email  && my_email !='b.zoff@free.fr'" (click)="OnDeletePhoto(pageOfItems[3*i])">
+                      delete:{{pageOfItems[3*i].key}}
+                       </button></div>
+                    
+                  </div>
+                </div>
+
+
+          </figure> 
+          </div>
+      </td>
+         
+      <td *ngIf="pageOfItems[3*i+1]"> 
+          <div class="hover09">
+              <figure>
+              <img [src] ="pageOfItems[3*i+1].imageUrl" (click)="OnViewPhoto(pageOfItems[3*i+1].key)" class="img-thumbnail" >
+              <figcaption class="transparence"> {{pageOfItems[3*i+1].caption}}   </figcaption>
+              
+                    
+                       <div class="container">
+                          <div class="row">
+                        
+                            <div class="col-md-6"><button class="btn-outline-danger" [disabled]="pageOfItems[3*i+1].author != my_email  && my_email !='b.zoff@free.fr'" (click)="OnDeletePhoto(pageOfItems[3*i+1])">
+                              delete:{{pageOfItems[3*i+1].key}}
+                               </button></div>
+                               
+                          </div>
+                        </div>
+              
+                      </figure>
+          </div>
+      </td>
+      
+      <td *ngIf="pageOfItems[3*i+2]"> 
+          <div class="hover09" >
+              <figure>
+                  <img [src] ="pageOfItems[3*i+2].imageUrl"  (click)="OnViewPhoto(pageOfItems[3*i+2].key)" class="img-thumbnail"  >
+              <figcaption class="transparence"> {{pageOfItems[3*i+2].caption}}  </figcaption>
+             
+              <div class="container">
+                  <div class="row">
+                    
+                    
+
+                    <div class="col-md-12" > <button class="btn-outline-danger"  [disabled]="pageOfItems[3*i+2].author != my_email  && my_email !='b.zoff@free.fr'" (click)="OnDeletePhoto(pageOfItems[3*i+2].key)"   >delete:{{pageOfItems[3*i+2].key}}</button>
+                    </div>
+                    
+
+
+
+                    
+                  </div>
+                </div>
+             
+               
+             
+             
+             </figure>
+          
+          
+          </div>
+  
+  
+  
+      </td>
+     
+  </tr>
+ 
+  </table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+<div *ngFor="let item of pageOfItems">{{item.caption}}</div> -->
+  
+  <div class="card-footer pb-0 pt-3" style="width:450px;">
+
+      <jw-pagination [items]="items" (changePage)="onChangePage($event)"></jw-pagination>
+
+  </div>
+<!--
+</div>
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+      
+         <h5>click on the image for more details </h5>   
+            <table *ngIf ="photos_bis" >
+             
+
+                <tr *ngFor ="let i of rowIndexArray_phototer ; ">
+                      <td >
+                        <div class="hover09" *ngIf="i == 0" >
+                       <figure>
+                            <a routerLink ="/image/photo">
+                            
+                            <img [src] ="imgDummy"  class="img-thumbnail"  > 
+                            <figcaption class="transparence"> insert new Image</figcaption>
+                            <button class="btn-outline-secondary ">new Image</button>     
+                        </a>         
+                        </figure>
+                        </div>
+                    
+                       <div class="hover09" *ngIf="i != 0">
+                          <figure>
+                               <img [src] ="photos_bis[3*i-1].imageUrl"  (click)="OnViewPhoto((i*3)-1)" class="img-thumbnail" >
+                            <figcaption class="transparence"> {{photos_bis[3*i-1].caption}}   </figcaption> 
+                           
+                            
+                           
+                           
+                            <div class="container">
+                                <div class="row">
+                                  
+                                  <div class="col-md-6"> <button class="btn-outline-danger" [disabled]="photos_bis[3*i-1].author != my_email  && my_email !='b.zoff@free.fr'" (click)="OnDeletePhoto(photos[3*i-1])">
+                                    delete:{{photos_bis[3*i-1].key}}
+                                     </button></div>
+                                  
+                                </div>
+                              </div>
+
+
+                        </figure> 
+                        </div>
+                    </td>
+                       
+                    <td *ngIf="photos_bis[3*i]"> 
+                        <div class="hover09">
+                            <figure>
+                            <img [src] ="photos_bis[3*i].imageUrl" (click)="OnViewPhoto(i*3)" class="img-thumbnail" >
+                            <figcaption class="transparence"> {{photos_bis[3*i].caption}}   </figcaption>
+                            
+                                  
+                                     <div class="container">
+                                        <div class="row">
+                                      
+                                          <div class="col-md-6"><button class="btn-outline-danger" [disabled]="photos_bis[3*i].author != my_email  && my_email !='b.zoff@free.fr'" (click)="OnDeletePhoto(photos[3*i])">
+                                            delete:{{photos_bis[3*i].key}}
+                                             </button></div>
+                                             
+                                        </div>
+                                      </div>
+                            
+                                    </figure>
+                        </div>
+                    </td>
+                    
+                    <td *ngIf="photos_bis[3*i+1]"> 
+                        <div class="hover09" >
+                            <figure>
+                                <img [src] ="photos_bis[3*i+1].imageUrl"  (click)="OnViewPhoto(i*3+1)" class="img-thumbnail"  >
+                            <figcaption class="transparence"> {{photos_bis[3*i+1].caption}}  </figcaption>
+                           
+                            <div class="container">
+                                <div class="row">
+                                  
+                                  
+
+                                  <div class="col-md-12" > <button class="btn-outline-danger"  [disabled]="photos_bis[3*i+1].author != my_email  && my_email !='b.zoff@free.fr'" (click)="OnDeletePhoto(photos[3*i+1])"   >delete:{{photos_bis[3*i+1].key}}</button>
+                                  </div>
+                                  
+
+
+
+                                  
+                                </div>
+                              </div>
+                           
+                             
+                           
+                           
+                           </figure>
+                        
+                        
+                        </div>
+                
+                
+                
+                    </td>
+                   
+                </tr>
+               
+                </table>
+           
+        -->

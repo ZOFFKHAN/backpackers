@@ -1,0 +1,86 @@
+
+  
+            <table *ngIf ="photos_bis" >
+                <tr *ngFor ="let i of rowIndexArray_phototer ; ">
+           <td >
+                        <div class="hover09" *ngIf="i == 0" >
+                       <figure>
+                            <a routerLink ="/image/photo">
+                            
+                            <img [src] ="imgDummy"  class="img-thumbnail"  > 
+                            <figcaption class="transparence"> insert new Image</figcaption>
+                               
+                        </a>         
+                        </figure>
+                        </div>
+                    
+                       <div class="hover09" *ngIf="i != 0">
+                          <figure>
+                               <img [src] ="photos_bis[3*i-1].imageUrl"  (click)="OnViewPhoto(photos_bis[3*i-1].ke)" class="img-thumbnail" >
+                            <figcaption class="transparence"> {{photos_bis[3*i-1].caption}}  {{photos_bis[3*i-1].key}} </figcaption> 
+                           
+                            
+                           
+                           
+                            <div class="container">
+                                <div class="row">
+                                  
+                                  
+                                  
+                                </div>
+                              </div>
+
+
+                        </figure> 
+                        </div>
+                    </td>
+                       
+                    <td *ngIf="photos_bis[3*i]"> 
+                        <div class="hover09">
+                            <figure>
+                            <img [src] ="photos_bis[3*i].imageUrl" (click)="OnViewPhoto(photos_bis[3*i].key)" class="img-thumbnail" >
+                            <figcaption class="transparence"> {{photos_bis[3*i].caption}}  {{photos_bis[3*i].key}}  </figcaption>
+                            
+                                  
+                                     <div class="container">
+                                        <div class="row">
+                                      
+                                         
+                                             
+                                        </div>
+                                      </div>
+                            
+                                    </figure>
+                        </div>
+                    </td>
+                    
+                    <td *ngIf="photos_bis[3*i+1]"> 
+                        <div class="hover09" >
+                            <figure>
+                                <img [src] ="photos_bis[3*i+1].imageUrl"  (click)="OnViewPhoto(photos_bis[3*i+1].key)" class="img-thumbnail"  >
+                            <figcaption class="transparence"> {{photos_bis[3*i+1].caption}} {{photos_bis[3*i+1].key}} </figcaption>
+                           
+                            <div class="container">
+                                <div class="row">
+                                  
+
+                                
+                                  
+                                </div>
+                              </div>
+                           
+                             
+                           
+                           
+                           </figure>
+                        
+                        
+                        </div>
+                
+                
+                
+                    </td>
+                   
+                </tr>
+               
+                </table>

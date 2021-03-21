@@ -1,0 +1,100 @@
+
+
+<div class= "row">
+    <div class="col-md-8">
+
+
+        <figure>
+            <blockquote class="blockquote">
+            <p class="mb-0 h6 display-4" style="text-align: left"> Bacpackers</p>
+            <p class="mb-0 h6 display-4" style="text-align: left"> (in Mauritius)</p>
+            </blockquote>
+            <figcaption class="blockquote-footer">
+            with <cite title="Source Title">Firebase Storage</cite> 
+            and <cite title="Source Title">Angular</cite>
+            </figcaption>
+        </figure>
+        
+        </div>
+    </div>
+
+    <table>
+
+
+        <div *ngFor="let photo of photos; index as i;">
+            <a [routerLink]="['images/view'] + i">      
+            <img src="{{photo.imageUrl}}" width=40px alt="image"/> 
+        </a> 
+            </div> 
+
+    </table>   
+
+                <div class="row">
+                    <div class="col-sm-4 col-sm-offset-2">
+                    
+                        <form [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+                            <div class="form-group" >
+                                <label for="email">Email</label>
+                                <Input style="height: 20px ;width:200px" type="text" id="email" class="form-control" formControlName="email" ngDefaultControl>
+                                </div>
+                                <div class="form-group">
+                                <label for="password">Password</label>
+                                <Input style="height: 20px ;width:200px" type="text" id="password" class="form-control" formControlName="password" ngDefaultControl>
+                            </div>
+                            <div >
+                            <button style="height: 30px" class="btn btn-outline-secondary" type="submit" [disabled]="signInForm.invalid">connexion</button>
+                            </div>
+                        </form>
+                            <p class="text-danger">{{ errorMessage}} </p>
+
+                                 <div class="col-sm-4 col-sm-offset-2">
+                                     <!--  <img src="assets\img\DSC00197.jpg" alt="image"/>-->
+                                    <img class="img-thumbnail" src="{{photo.imageUrl}}" style="max-width:300px"  alt="image"/>   
+                           
+                            </div>
+        
+
+
+      
+                    <table *ngIf ="photolistbis">
+                         <tr *ngFor ="let i of rowIndexArraybis">
+                            <td *ngIf="photolistbis[3*i]">
+                                <div class="hover09">
+                                    <img style="max-width:100px" [src] ="photolistbis[3*i].imageUrl"   class="img-thumbnail" >
+                                </div>
+                            </td>
+                            <td *ngIf="photolistbis[3*i+1]"> 
+                                <div class="hover09">
+                                    <img  style="max-width:100px" [src] ="photolistbis[3*i+1].imageUrl"  class="img-thumbnail" >
+                                </div>
+                            </td>
+                            <td *ngIf="photolistbis[3*i+2]"> 
+                                <div class="hover09">
+                                    <img style="max-width:100px" [src] ="photolistbis[3*i+2].imageUrl"  class="img-thumbnail"  >
+                                </div>
+                            </td>
+                </tr>
+            </table>
+
+
+
+
+
+
+
+
+    
+   
+
+    </div>
+
+   
+
+
+  
+
+      
+
+
+
+

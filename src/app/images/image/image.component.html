@@ -1,0 +1,48 @@
+
+
+<div class="card" style="width:25rem">
+    <div class="card-body">
+        <form [formGroup]= "formTemplate" (submit)="onSubmit(formTemplate.value)"> <!--renvoie les valeurs du formulaire-->
+            
+            <div class="text-center">
+              <img [src]="imgSrc" width ="350px" height="250px" (click)="fileUploader.click()" > <!-- utilise le #fileuploader ci dessous-->
+            </div>
+            <div class="form-group">
+                <label> Select file to upload</label>
+                <!--ou restreindre avec image/png, image/jpg -->
+                <input type="file"  accep="image/*" class="form-control" #fileUploader  formControlName="imageUrl" (change)="showPreview($event)">
+          <!-- uniquement si le formulaire a été sousmis et qu'il y a une error sur le champ imageUrl-->
+           <div class="text-danger" *ngIf="isSubmitted && formControls.imageUrl.errors?.required">This field is required.</div>
+            </div>
+            <div class="form-group">
+                 <input  class="form-control" formControlName="caption" placeholder="caption" >
+              <!-- uniquement si le formulaire a été sousmis et qu'il y a une error sur le champ caption-->
+           <div class="text-danger" *ngIf="isSubmitted && formControls.caption.errors?.required && formControls.caption.hasError('maxlength')">This field is required.</div>
+       
+          
+
+
+
+
+                </div>
+            <div class ="form-select">
+                <select formControlName="category" class="form-control" >
+                    
+                    <option value= "Mauritius">Mauritius views</option>
+                    <option value= "Vehicule">Vehicule</option>
+                    <option value= "Bird">Bird </option> 
+                </select>
+            </div>
+           <div class="form-row">
+            
+            <div class="form-group col-md-6">
+                <a routerLink= "/image/list" class="btn btn-outline-secondary btn-sm float-right">Go to Gallery</a>
+            </div>
+            
+            <div class="form-group col-md-6 ">
+                <button type ="submit" class="btn btn-outline-success btn-sm float-right">Submit</button>    
+            </div>
+          </div>
+        </form>
+    </div>
+</div>

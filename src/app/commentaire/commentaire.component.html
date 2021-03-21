@@ -1,0 +1,35 @@
+<p>question works!</p>
+
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+        <h2> nouveau commentaire</h2>
+        <form [formGroup]="commentaireForm" (ngSubmit)="onSaveCommentaire()">
+            <div class="form-group">
+                <label for="author">Auteur</label>
+                <input type="text" class="form-control" id="author" formControlName="author" ngDefaultControl> 
+            </div>
+
+            <div class="form-group">
+                <label for="commentaire">commentaire</label>
+                <input type="text" class="form-control" id="commentaire" formControlName="commentaire" ngDefaultControl>
+           
+            </div>
+
+            <div class="form-group">
+                <label for="datepublished">datepublished</label>
+                <input type="text" class="form-control" id="datepublished" formControlName="datepublished" ngDefaultControl>
+           
+            </div>
+
+            <div class="form-group">
+                <label for="commentaireid">commentaireid</label>
+                <input type="text" class="form-control" id="commentaireid" formControlName="commentaireid" ngDefaultControl>
+         
+            </div>
+
+            
+            <button class="btn btn-success" type="submit">Enregistrer</button>
+        </form>
+    </div>
+</div>
+

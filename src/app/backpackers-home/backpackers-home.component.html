@@ -1,0 +1,157 @@
+<p>backpackers-home works!</p>
+
+<div>
+    <h1>Appuyez sur connexion pour commencer la visite </h1>
+    <p> As a visitor you can load, delete,update only the photos for which the V.visitor@visitor.com is the author</p>
+    <p> If you want to edit your own group of photos you should first create an account  then use it to connect</p>
+</div>   
+
+<div class="wrapper">
+    <button (click)="toggleShowDiv('divA')">"+-"</button>
+    <!--<div [@slideInOut]="animationState" style="height: 100px; background-color: rgb(247, 244, 244);">
+    THIS DIV IS ANIMATED</div>-->
+     <div [@slideInOut]="animationState" style="height: 200px; background-color: rgb(247, 244, 244);">
+    THIS DIV IS ANIMATED
+   <div>
+    <img src="assets/img/DSC00079.JPG" style="height: 100px; width:200px ; opacity: 0.75;"/> 
+    THIS DIV IS ANIMATED too
+  </div>
+  
+  </div>
+    <div class="content">THIS IS CONTENT DIV</div>
+</div>
+<!--
+<div class="container">
+    <div class="box rotate">
+      <img src="assets/img/DSC00079.JPG" style="height: 100px; width:150px ; opacity: 0.5; opacity: 0.75;"/> 
+    
+       </div>
+  </div> 
+  -->
+<!--
+  <ng-container *ngFor="let i of [0,1,2,3]">
+    <div *ngIf="i==index && !loading" [@flyInOut] [ngClass]="'background div'+i">
+    </div>
+</ng-container>
+
+Hello word
+--->
+
+<!--
+<ng-container *ngIf="loading">
+    <div style="width:0;height:0" *ngFor="let i of [1,2,3]" [ngClass]="'background div'+i">
+    </div>
+    <div [@flyInOut] class="background div0"></div>
+</ng-container>
+-->
+<!--
+<div>
+  <span class="red">Red</span>
+</div>
+<div>
+  <span class="green">Green</span>
+</div>
+<div>
+  <span class="blue">Blue</span>
+</div>
+-->
+<div >
+  <span class="drop-shadow">test shadow on a full sentence</span>
+   </div>
+  
+   <div id="box">
+    <h1>Box Model</h1>
+    <p>
+      The Box model determines how elements are positioned within the
+      browser window. With the Box Model, a developer can control the
+      dimensions, margins, padding, and borders of an HTML element.
+    </p>
+  </div>
+
+
+  <div class="parent">
+    <h1> Nesting Div</h1>
+    <div class="child">
+    <h2>Child Div 1</h2>
+    </div>
+    <div class="child">
+    <h2>Child Div 2</h2>
+    </div>
+    </div>
+<p>CSS Static Position</p>
+
+    <div class="one">Static Position Example - 1</div>
+  <div class="two">Static Position Example - 2 </div>
+
+  <p>CSS Relative Position</p>
+
+  <div class="first">First Div</div>
+  <div class="second">Second Div
+  <div class="third">Third Div</div>
+  </div>
+
+  <p>CSS Absolute Position</p>
+
+  <div class="first1">First Div</div>
+  <div class="second1">Second Div
+  <div class="third1">Third Div</div>
+  </div>
+
+  <p>CSS Fixed Position</p>
+
+  <div class="first2">
+    One<br>
+    Two<br>
+    Three<br>
+    Four<br>
+    Five<br>
+  </div>
+  <div class="second2">
+    Six<br>
+    Seven<br>
+    Eight<br>
+    Nine<br>
+    Ten<br>
+  </div>
+  <div class="third2">Fix Here</div>
+
+
+  <p>CSS Position Center (Horizontal Align center)</p>
+
+  <div class="positionCenter">position center
+  </div>
+
+  <p>How To Center an Object Exactly In The Center(absolute center</p>
+  <div class="absoluteCenter"> absolute center
+  </div>
+<p>float left right clear</p>
+
+<div class="box1">
+  Box1
+</div>
+<div class="box2">
+  Box2
+</div>
+<div class="box3">
+  Box3
+</div>
+<p> z index</p>
+
+<div class="box14">    BOX - 1 </div>
+  <div class="box5">    BOX - 2 </div>
+
+
+
+ 
+
+<p>supperposer deux images</p>
+  <div style="position: relative; left: 0; top: 0;">
+    <img src="assets/img/DSC00197.JPG" class="fishes"/>
+    <img src="assets/img/DSC00221.JPG" class="fish"/>
+  </div>
+  
+  <p>supperposer deux images z index</p>
+  <div style="position: relative; left: 0; top: 0;">
+    <img src="assets/img/DSC00197.JPG" class="fishes1"/>
+    <img src="assets/img/DSC00221.JPG" class="fish1"/>
+  </div>

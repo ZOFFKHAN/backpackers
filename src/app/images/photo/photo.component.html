@@ -1,0 +1,97 @@
+
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      
+      
+        <form [formGroup]= "photoForm" (submit)="onSubmit(photoForm.value)"> 
+            
+            <div class="text-center">
+              <img [src]="imgSrc" width ="350px" height="250px" (click)="fileUploader.click()"  > 
+            
+            </div>
+           
+            <div class="form-group" class="text-left">
+                <label for="caption">Caption(14 max) </label>
+                <input style="height: 20px ;width:200px ;background-color:rgb(236, 234, 234)"  type="text" class="form-control" id="caption" formControlName="caption" ngDefaultControl>
+                <div   *ngIf="photoForm.controls['caption'].touched && photoForm.controls['caption'].hasError('maxlength')">
+                    Maximum of 14 characters
+                  </div>
+                 
+            
+                <div style="height: 10px "></div>
+               
+                <div style="height: 80px ;width:450px " class ="form-select">
+                    <label for="category">Category</label>
+                    <select style="height: 40px ;width:200px ;background-color:rgb(236, 234, 234)" formControlName="category" class="form-control" >
+                        
+                        <option value= "Animal">Animal</option>
+                        <option value= "Apartment">Apartment</option>
+                        <option value= "Beach">Beach</option>
+                        <option value= "Bird">Bird </option> 
+                        <option value= "Landscape">Landscape</option> 
+                        <option value= "Mauritius">Mauritius views</option>
+                        <option value= "Mountain">Mountain</option>
+                        <option value= "Other">Other</option>
+                        <option value= "Sport">Sport</option>
+                        <option value= "Sunset">Sunset</option>
+                         <option value= "Vehicule">Vehicule</option>
+                        
+                    </select>
+                </div>
+                </div>
+            <!--
+                <div class="form-group" class="text-left">
+                    <label for="author">Author </label>
+                    <input style="height: 20px ;width:200px ;background-color:rgb(236, 234, 234)"  type="text" class="form-control" id="author" formControlName="author" ngDefaultControl>
+                    
+                </div>
+-->
+<div style="height: 10px "></div>
+                    
+<label for="commentaire">commentaire_author </label>
+<div style="height: 10px "></div>
+                            
+                
+
+                <div class="form-group" class="text-left">
+                   
+                    <textArea style="height: 60px ;width:400px ;background-color:rgb(236, 234, 234)" ngModel id="commentaire"  ngDefaultControl formControlName="commentaire" rows="5" cols="10" required>
+                    </textArea>
+                </div>
+         
+           
+
+
+
+
+
+
+
+
+            <div style="height: 10px"></div>
+
+            <div class="form-group">
+                <label> Ajouter une photo </label>
+                <!--ou restreindre avec image/png, image/jpg -->
+                <input style="width:450px ;background-color:rgb(236, 234, 234)" type="file"  accep="image/*" class="form-control" #fileUploader  formControlName="imageUrl" (change)="showPreview($event)">
+                
+            </div>
+        <div style="height: 10px"></div>
+
+           <div class="container">
+           <div class="form-row">
+            
+            <div class="form-group col-md-6">
+                <a button routerLink= "/image/list" class="btn btn-outline-secondary btn-sm float-right">Go to Gallery</a>
+            </div>
+            
+            <div class="form-group col-md-6 ">
+                <button type ="submit" class="btn btn-outline-success btn-sm float-right">Submit</button>    
+            </div>
+          </div>
+           </div>
+        </form>
+    </div>
+</div>
+
+

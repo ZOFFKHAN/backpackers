@@ -1,0 +1,366 @@
+
+<!--
+<pre>{{ rawData 
+    | async | json}}</pre> 
+
+-->
+ 
+   <!--
+   
+    <table *ngIf ="MesQuestions1" >
+      <tr *ngFor ="let i of compteur ; ">
+        <td *ngIf="MesQuestions1[3*i]">
+          <div class="col-md-6"><button class="btn-outline-secondary" (click)="OnViewCom(MesQuestions1[3*i].key)">
+            view:{{MesQuestions1[3*i].key}}
+             </button></div>        
+      </td>
+      <td *ngIf="MesQuestions1[3*i+1]">
+        <div class="col-md-6"><button class="btn-outline-secondary" (click)="OnViewCom(MesQuestions1[3*i+1].key)">
+          view:{{MesQuestions1[3*i+1].key}}
+           </button></div>   
+      </td>
+      <td *ngIf="MesQuestions1[3*i+2]">
+        <div class="col-md-6"><button class="btn-outline-secondary" (click)="OnViewCom(MesQuestions1[3*i+2].key)">
+          view:{{MesQuestions1[3*i+2].key}}
+           </button></div>      
+      </td>
+      </tr>
+    </table>
+    -->
+    <div class="box2">
+    <div  class="card m-2" style=" padding: 10px; width:375px; margin: 2px;">
+      Question
+    <div *ngFor="let varchild of childData">
+      
+      <p>{{varchild.question}}</p>
+      <p>Author : {{varchild.author}},date published : {{varchild.datepublished | date }}</p>
+      <button class="btn-outline-secondary" (click)="OnNewCom(varchild.questionid)">Add cmts</button>
+     <!--<p>{{varchild.questionid}}</p>-->
+      
+    </div>
+  </div>
+
+  <div  class="card m-2" style=" padding: 10px; width:375px; margin: 2px;">
+    Réponse(s)
+    <div class="card m-2" style="border: 1px solid grey; padding: 10px; width:350px; margin: 1px;" *ngFor="let commentaire of comment_bis">
+     <!--
+      <p> id_key : {{commentaire.key}}</p>
+      <p>{{commentaire.commentaireid}}</p>
+-->
+      <p>{{commentaire.commentaire}}</p>
+      
+      <p>Author : {{commentaire.author}},date published : {{commentaire.datepublished | date }}</p>
+      <div class="col-md-6">
+      <button class="btn-outline-danger" (click)="OnDelCom1(commentaire.key)">delete comment</button>
+    </div>
+    <!--
+    <div class="col-md-6">
+      <button class="btn-outline-secondary" (click)="OnNewCom(commentaire.commentaireid)">Add cmts</button>
+    </div> -->  
+    </div>
+   
+  </div>
+</div>
+
+
+  
+    <!--
+    
+    <div class="card m-2" style="border: 2px solid grey;  width:375px; ">
+    <div *ngFor="let comment of usersList">
+      <div class="card m-2" style="border: 1px solid burlywood;  width:340px">
+       <p> id : {{comment.id}}</p>
+        <p>{{comment.commentaire}}</p>
+        <p>{{comment.commentaireid}}</p>
+        <p>{{comment.author}},{{comment.datepublished | date }}</p>
+      </div>
+        <div class="row">
+
+        <div class="col-md-6">
+        <button class="btn-outline-danger" (click)="OnDelCom(comment.commentaireid,comment.id)">delete comment</button>
+        </div>
+        <div class="col-md-6"><button class="btn-outline-secondary" (click)="OnNewCom(comment.commentaireid)">
+          Add comment
+          </button></div>  
+        </div>
+        
+    </div>
+  </div>
+-->
+    
+    
+    
+    
+    
+    
+    
+    
+    
+   
+    
+    
+    
+    <div class="col-md-12">
+    
+     <!--
+      <ng-container *ngIf="rawData | async; let joined">
+      
+      
+      <div class="card m-2" style="width: 375px;" *ngFor="let comment of joined; let i = index">
+        <div class="card-body">
+         
+          <p > {{ i }}</p>
+          <p > {{ comment.commentaire }}</p>
+        
+            <p>auteur : {{ comment.author }} , </p>
+           
+           
+            <p> {{comment.datepublished | date }}</p>
+        
+      </div>
+      <button class="btn-outline-danger" (click)="OnDelCom(comment.commentaireid,i)">{{ comment.commentaireid }},{{ i }}</button>
+    </div>
+  
+   
+   
+   
+    
+
+    </ng-container>
+-->
+
+     
+      
+
+
+    <div  class="box3">
+      <div class="col-sm-8 col-sm-offset-2">
+        <div class="drop-shadow">
+          <p> Nouveau commentaire</p>
+        </div>
+          <form [formGroup]="commentaireForm" >
+              <div class="form-group">
+                  <label for="author">Auteur</label>
+                  <input style="height: 20px ;width:200px ;background-color:rgb(236, 234, 234)" type="text" class="form-control" id="author" formControlName="author" ngDefaultControl> 
+              
+                  <div class="text-danger" *ngIf="isSubmitted && formControls.author.errors?.required">This field is required.</div>
+       
+                </div>
+  <!--
+              <div class="form-group">
+                  <label for="commentaire">Commentaire</label>
+                  <input style="height: 20px ;width:200px ;background-color:rgb(236, 234, 234)" type="text" class="form-control" id="commentaire" formControlName="commentaire" ngDefaultControl>
+             
+              </div>
+  -->
+  <div class="form-group">
+              <label for="commentaire">commentaire </label>
+              <div style="height: 10px "></div>
+              <textArea style="height: 60px ;width:375px ;background-color:rgb(236, 234, 234)"
+               [(ngModel)] ="commentaire"
+               id="commentaire"
+                 formControlName="commentaire"
+                 name ="commentaire"
+                 rows="5" cols="10" required ngDefaultControl>
+                jlkjkjkjkl
+                </textArea>
+                <div class="text-danger" *ngIf="isSubmitted && formControls.commentaire.errors?.required">This field is required.</div>
+       
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+ 
+          </form>
+      </div>
+  </div>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+ 
+  <form [formGroup]="reactiveForm"  >
+    <div *ngFor="let question of MesQuestions; let i = index">
+        <!-- <div *ngFor="let w of wholeAlbum; let i = index">
+        <div *ngFor="let x of w">{{i + ': ' + x.src}}</div> -->
+      
+        
+
+        <div *ngFor="let x of question"> 
+          <div class="box1" class="card m-2"  style="border: 3px solid grey; padding: 10px; width:375px; margin: 1px;">
+                
+           
+            <p>{{ x.question}}</p> 
+         
+
+                <div class="container" style="border: 1px solid grey;">
+                  <div class="row">
+                    
+                <p> author : {{ x.author}},  {{x.datepublished | date }}</p>
+              </div>
+                <div class="row">
+                <!--
+                <div class="col-md-6"><button class="btn-outline-secondary" (click)="OnViewCom(x.questionid)">
+                  view cmts
+                   </button>
+                   
+                  </div>   
+
+
+
+                  
+-->
+
+<!--
+<div class="col-md-6">
+                    
+  <button class="btn-outline-secondary" (click)="reloadPage()">
+  
+reload page      </button>
+  
+
+
+</div>  
+
+-->
+
+
+
+
+
+                 
+<!--
+<div class="col-md-6">
+                    
+                    <button class="btn-outline-secondary" (click)="initUsers(x.questionid)">
+                    
+               view cmmts      </button>
+                    
+   -->            
+               <!--
+                     <button class="btn-outline-danger" (click)="listquestion(x.questionid)">génère question</button>
+   
+
+
+                    </div>  -->
+
+                    
+
+                    <div class="col-md-6">
+                    
+                      <button class="btn-outline-secondary" (click)="list_comment(x.questionid)">
+                      
+                        list_comment     </button>
+                      
+                 
+
+  
+                      </div>  
+
+                  <!--
+                   <div class="col-md-6"><button class="btn-outline-secondary" (click)="OnNewCom(x.questionid)">
+                   add cmts
+                     </button></div>   
+-->
+
+                    </div>
+                  </div>
+
+                   
+            
+              </div>
+          </div>
+      </div> 
+   
+  </form>
+ 
+    </div>
+
+
+
+
+
+
+
+
+
+
+<!--
+<div *ngFor="let question of MesQuestions">
+  <p>{{question.author}}</p>
+  <p>{{question.question}}</p>
+  <p>{{question.questionid}}</p>
+
+
+
+</div>-->
+
+   
+
+      
+
+  
+
+
+<!--
+
+  <h3>Joining data between collections</h3>
+
+  <ng-container *ngIf="getOrders$  | async; else loading; let joined">
+    <div class="card m-2" style="width: 18rem;" *ngFor="let commentaire of joined">
+      <div class="card-body">
+        <h5>{{ commentaire.author }}</h5>
+        <h5>{{ commentaire.commentaire }}</h5>
+          <h5>{{ commentaire.commentaireid }}</h5>
+ <small>{{ blogPost.author.name }}</small> 
+ 
+
+        
+      </div>
+    </div>
+    
+  </ng-container>
+
+  <ng-template #loading>
+    Loading...
+  </ng-template> -->
+

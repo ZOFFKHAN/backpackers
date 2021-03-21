@@ -1,0 +1,216 @@
+
+
+
+
+
+
+<div class="container" style="border: 2px solid silver">
+
+  <div class="row" style="border: 1px solid silver ; background-color:rgb(15, 15, 15)" >
+
+
+    <table *ngIf ="pageOfItems">
+      <tr *ngFor ="let i of rowIndexArraybis">
+       
+        <td *ngIf="pageOfItems[6*i]">
+             <div class="hover09"> 
+                 <img style="max-width:50px" [src] ="pageOfItems[6*i].imageUrl" (click)="currentImage(pageOfItems[6*i].key)"  class="img-thumbnail" >
+                
+                </div>
+         </td>
+         <td *ngIf="pageOfItems[6*i+1]"> 
+             <div class="hover09">
+                 <img  style="max-width:50px" [src] ="pageOfItems[6*i+1].imageUrl" (click)="currentImage(pageOfItems[6*i+1].key)" class="img-thumbnail" >
+             </div>
+         </td>
+         <td *ngIf="pageOfItems[6*i+2]"> 
+             <div class="hover09">
+                 <img style="max-width:50px" [src] ="pageOfItems[6*i+2].imageUrl" (click)="currentImage(pageOfItems[6*i+2].key)" class="img-thumbnail"  >
+             </div>
+         </td> 
+         <td *ngIf="pageOfItems[6*i+3]"> 
+          <div class="hover09">
+              <img style="max-width:50px" [src] ="pageOfItems[6*i+3].imageUrl" (click)="currentImage(pageOfItems[6*i+3].key)" class="img-thumbnail"  >
+          </div>
+      </td> 
+      <td *ngIf="pageOfItems[6*i+4]"> 
+        <div class="hover09">
+            <img style="max-width:50px" [src] ="pageOfItems[6*i+4].imageUrl" (click)="currentImage(pageOfItems[6*i+4].key)" class="img-thumbnail"  >
+        </div>
+    </td> 
+    <td *ngIf="pageOfItems[6*i+5]"> 
+      <div class="hover09">
+          <img style="max-width:50px" [src] ="pageOfItems[6*i+5].imageUrl" (click)="currentImage(pageOfItems[6*i+5].key)" class="img-thumbnail"  >
+      </div>
+    </td> 
+         <!--
+          <div>
+            <img [src] ="pageOfItems[i].imageUrl" (click)="currentImage(pageOfItems[i].key)" style="max-width:100px"  class="img-thumbnail" >
+          </div> 
+          
+          <div>key : {{pageOfItems[i].key}}</div> -->
+    </tr>
+    </table>
+    
+    </div>
+    
+      
+    <!--
+      <ul>
+        <li><img src="{{photo.imageUrl}}" style="max-width:60px"  class="img-thumbnail" alt="image"/></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    -->
+   <!-- <div class="card-footer pb-0 pt-3" style="width:450px;"> -->
+    <div class="row" style="border: 1px solid silver">
+      <jw-pagination [items]="items" (changePage)="onChangePage($event)"></jw-pagination>
+    </div>
+    
+    <!--
+    </div> -->
+
+  
+      <div class="row" style="border: 1px solid silver ">
+        <div class="col-12 col-md-12 " style="border: 1px solid silver "><p style="text-align: center"><img src="{{photo.imageUrl}}" style="max-width:375px"  class="img-thumbnail" alt="image"/> </p></div>
+      </div>
+
+      <div class="row" style="border: 1px solid silver">
+        <div  class="col-4 col-md-4 " style="border: 1px solid silver"><p style="text-align: left" ><button [disabled]="new_key === 0 "  class="btn-outline-secondary" (click)="previousImage()"> previous </button></p></div>
+        <div   class="col-4 col-md-4 " style="border: 1px solid silver"><p style="text-align: center"><label > {{new_key}}  {{numImages}}</label></p></div>
+        <div  class="col-4 col-md-4" style="border: 1px solid  silver"><p style="text-align: right"><button   class="btn-outline-secondary" (click)="nextImage()"> next </button></p></div>
+      </div>
+      
+  
+    
+
+
+     
+
+
+
+    <!--
+    <div [formGroup]="myGroup" class="col-sm-4 col-sm-offset-2"> -->
+      <div [formGroup]="myGroup" >
+
+     
+          
+      
+
+      <div class="row" style="border: 1px solid silver">
+          <!-- <div class="col-4 col-md-4" style="border: 1px solid rgb(8, 8, 8)"><label for="commentaire">Commentaire </label></div>-->
+        <div class="col-12 col-md-12" style="border: 1px solid  silver">
+          <p style="text-align: center">
+          <textArea style="height: 130px ; width:365px;background-color:rgb(236, 234, 234)"
+          [(ngModel)] ="commentaire"
+          id="commentaire"
+            formControlName="commentaire"
+            name ="commentaire"
+            rows="5" cols="10" required ngDefaultControl>
+           jlkjkjkjkl
+           </textArea>
+           </p>
+          </div>
+      </div>
+
+      <div class="row" style="border: 1px solid silver">
+        <div class="col-4 col-md-4" style="border: 1px solid silver">update below </div>
+        <div class="col-8 col-md-8" style="border: 1px solid  silver">
+          <p style="text-align: right">
+          
+          <button [disabled]="photo.author != my_email  && my_email !='b.zoff@free.fr'" class="btn-outline-secondary" (click)="updatePhoto()"> Update 
+
+          </button>
+        </p></div>
+      </div>
+
+
+
+
+      
+  
+      
+
+
+
+ 
+      <div class="form-group">
+        <div class="row" style="border: 1px solid rgb(238, 234, 230)">
+          <div class="col-4 col-md-4" style="border: 1px solid silver"><label for="new_caption">Caption</label></div>
+          <div class="col-8 col-md-8" style="border: 1px solid silver">   <input  style="height: 20px ;width:200px "
+            type="text"
+            class="form-control"
+            id="new_caption"
+            [(ngModel)]="new_caption"
+            name="new_caption" formControlName="new_caption" ngDefaultControl 
+          /></div>
+        </div>
+      </div>
+
+      <div class="row" style="border: 1px solid rgb(238, 234, 230)">
+        <div class="col-4 col-md-4" style="border: 1px solid silver"><label for="new_category">Category</label></div>
+        <div class="col-8 col-md-8" style="border: 1px solid silver">  <select style="height: 40px ;width:200px ;background-color:rgb(236, 234, 234)" 
+          id="new_category"
+                [(ngModel)]="new_category"
+                name="new_category" 
+          formControlName="new_category" class="form-control" ngDefaultControl >
+          <option value= "Apartment">Apartment</option>
+          <option value= "Animal">Animal</option>
+              
+              <option value= "Beach">Beach</option>
+              <option value= "Bird">Bird </option> 
+              <option value= "Landscape">Landscape</option> 
+              <option value= "Mauritius">Mauritius views</option>
+              <option value= "Mountain">Mountain</option>
+              <option value= "Other">Other</option>
+              <option value= "Sport">Sport</option>
+              <option value= "Sunset">Sunset</option>
+               <option value= "Vehicule">Vehicule</option>
+              
+          </select></div>
+      </div>
+      <div class="row" style="border: 1px solid silver">
+        <div class="col-4 col-md-4" style="border: 1px solid silver">published : </div>
+        <div class="col-4 col-md-4" style="border: 1px solid  silver">{{ photo.published }}</div>
+        
+        <div class="col-4 col-md-4" style="border: 1px solid  silver">
+         <p style="text-align: right">  <button
+          class="btn-outline-secondary"
+          *ngIf="photo.published"
+          (click)="updatePublished(false)"
+          [disabled]="photo.author != my_email  && my_email !='b.zoff@free.fr'"
+          >
+          UnPublish
+          </button>
+        </p>
+          
+        <p style="text-align: right">
+            <button
+              *ngIf="!photo.published"
+              class="btn-outline-secondary"
+              (click)="updatePublished(true)"
+              [disabled]="photo.author != my_email  && my_email !='b.zoff@free.fr'"
+            >
+              Publish
+            </button>
+          </p>
+          </div>
+      
+
+      </div>
+
+      <div class="row" style="border: 1px solid silver">
+        <div class="col-4 col-md-4" style="border: 1px solid  silver">Auteur : </div>
+        <div class="col-8 col-md-8" style="border: 1px solid  silver">{{ photo.author }}</div>
+      </div>
+
+      
+    
+
+
+
+    </div>
+
+</div>
+  

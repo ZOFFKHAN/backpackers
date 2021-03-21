@@ -1,0 +1,60 @@
+<p>question works!</p>
+
+<div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+        <h2> nouvelle question</h2>
+        <form [formGroup]="questionForm" (ngSubmit)="onSaveQuestion()">
+            <div class="form-group">
+                <label for="author">Auteur</label>
+                <input style="height: 20px ;width:200px ;background-color:rgb(236, 234, 234)" type="text" class="form-control" id="author" formControlName="author" ngDefaultControl> 
+                <div class="text-danger" *ngIf="isSubmitted && formControls.author.errors?.required">This field is required.</div>
+       
+            </div>
+<!--
+            <div class="form-group">
+                <label for="question">question</label>
+                <input type="text" class="form-control" id="question" formControlName="question" ngDefaultControl>
+           
+            </div>
+            --->
+            
+            <div class="form-group">
+            <label for="question">question </label>
+            <div style="height: 10px "></div>
+            <textArea style="height: 60px ;width:400px ;background-color:rgb(236, 234, 234)"
+             [(ngModel)] ="question"
+             id="question"
+               formControlName="question"
+               name ="question"
+               rows="5" cols="10" required ngDefaultControl>
+              jlkjkjkjkl
+              </textArea>
+              <div class="text-danger" *ngIf="isSubmitted && formControls.question.errors?.required">This field is required.</div>
+       
+            </div>
+
+
+
+
+
+
+    <!--
+
+            <div class="form-group">
+                <label for="datepublished">datepublished</label>
+                <input type="text" class="form-control" id="datepublished" formControlName="datepublished" ngDefaultControl>
+           
+            </div>
+
+            <div class="form-group">
+                <label for="questionid">questionid</label>
+                <input type="text" class="form-control" id="questionid" formControlName="questionid" ngDefaultControl>
+         
+            </div>
+            -->
+
+            
+            <button class="btn btn-success" type="submit">Enregistrer</button>
+        </form>
+    </div>
+</div>
